@@ -1,0 +1,178 @@
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop (master)
+$ cd ~
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~
+$ ls
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ Documents/
+ Downloads/
+ Favorites/
+ hi/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ MicrosoftEdgeBackups/
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TM.blf
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{fd9a35db-49fe-11e9-aa2c-248a07783950}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+ Pictures/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+ Videos/
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~
+$ cd /
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 /
+$ ls
+bin/  etc/           LICENSE.txt  ReleaseNotes.html  unins000.exe*
+cmd/  git-bash.exe*  mingw64/     tmp/               unins000.msg
+dev/  git-cmd.exe*   proc/        unins000.dat       usr/
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 /
+$ cd DESKTOP
+bash: cd: DESKTOP: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 /
+$ cd Desktop
+bash: cd: Desktop: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 /
+$ pwd
+/
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 /
+$ cd ~
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~
+$ cd DESKTOP
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP (master)
+$ pwd
+/c/Users/Charan Kowndinya/DESKTOP
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP (master)
+$ cd DevOps
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps (master)
+$ ls
+ 1.Linux/               Charan.pem
+ 10.Ansible/           'devops installation in linux'/
+'11 AWS'/              'devops recordings'/
+'12 Monitoring Tool'/  'DevOps Syllabus.docx'
+'2.Shell Script'/       doubts/
+ 3.Github/              files/
+'4.Maven and Tomcat'/   hi/
+ 5.sonarqube/          'INCOMPLETES OF NOTES.txt'
+ 6.nexus/              'interview point'/
+ 7.jenkins/             javaprojects/
+ 8.Docker/             'Valaxy tech Proj'/
+ 9.Kubernates/         'WildFly Test 1 .pdf'
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps (master)
+$ mkdir testlinux
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps (master)
+$ cd testlinux/
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ touch comands
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+comands
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ rm comands
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ vi commands
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cat commands
+
+hello all
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+commands
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cp commands guest
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+commands  guest
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cat guest
+
+hello all
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cat commands
+
+hello all
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ vi commands
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cat commands
+
+hello all
+new text for mv command
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ mv commands guest
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+guest
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cat guest
+
+hello all
+new text for mv command
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+guest
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ mv guest ghost
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ ls
+ghost
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/DESKTOP/DevOps/testlinux (master)
+$ cat ghost
+
+hello all
+new text for mv command
