@@ -1,4 +1,0 @@
-hello all
-this is just test
-for sending dir to remote repo
-hi
