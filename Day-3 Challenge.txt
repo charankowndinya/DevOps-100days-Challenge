@@ -1,0 +1,590 @@
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop (master)
+$ ls -lrt
+total 237
+-rw-r--r-- 1 Charan Kowndinya 197121 22173 Nov 26 23:50 'Charan Kowndinya_DevOps
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop (master)
+$ ls
+ 4cd24206-d01e-448a-90d0-20db4bab33c6.jpg   DevOps/
+ charan/                                   'DevOps resume 1.9 exp.docx'
+'Charan DevOps 1.8 years exp.docx'          hi/
+'Charan Kowndinya_DevOps_Resume.docx'       hiii/
+ charan.txt/                                Linux/
+'Charan_Kowndinya_DevOps_1.8 Exp.docx'      newkey.pem
+'Day1 Challenge.txt'                        testlinux/
+'Day-2 Challenge.txt'                       testrunner/
+ desktop.ini
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop (master)
+$ cd Linux/
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ ls
+Day.txt  Day-1  Day-2  Filecontent.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat Filecontent.txt
+1,2013-07-25 00:00:00.0,11599,CLOSED
+2,2013-07-25 00:00:00.0,256,PENDING_PAYMENT
+3,2013-07-25 00:00:00.0,12111,COMPLETE
+4,2013-07-25 00:00:00.0,8827,CLOSED
+5,2013-07-25 00:00:00.0,11318,COMPLETE
+6,2013-07-25 00:00:00.0,7130,COMPLETE
+7,2013-07-25 00:00:00.0,4530,COMPLETE
+8,2013-07-25 00:00:00.0,2911,PROCESSING
+9,2013-07-25 00:00:00.0,5657,PENDING_PAYMENT
+10,2013-07-25 00:00:00.0,5648,PENDING_PAYMENT
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+1,2013-07-25 00:00:00.0,11599,CLOSED
+2,2013-07-25 00:00:00.0,256,PENDING_PAYMENT
+3,2013-07-25 00:00:00.0,12111,COMPLETE
+4,2013-07-25 00:00:00.0,8827,CLOSED
+5,2013-07-25 00:00:00.0,11318,COMPLETE
+6,2013-07-25 00:00:00.0,7130,COMPLETE
+7,2013-07-25 00:00:00.0,4530,COMPLETE
+8,2013-07-25 00:00:00.0,2911,PROCESSING
+9,2013-07-25 00:00:00.0,5657,PENDING_PAYMENT
+10,2013-07-25 00:00:00.0,5648,PENDING_PAYMENT
+11,2013-07-25 00:00:00.0,918,PAYMENT_REVIEW
+12,2013-07-25 00:00:00.0,1837,CLOSED
+13,2013-07-25 00:00:00.0,9149,PENDING_PAYMENT
+14,2013-07-25 00:00:00.0,9842,PROCESSING
+15,2013-07-25 00:00:00.0,2568,COMPLETE....
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f1 Filecontent.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f1 Filecontent.txt  > order_numbers.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat order_numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f3 Filecontent.txt
+11599
+256
+12111
+8827
+11318
+7130
+4530
+2911
+5657
+5648
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+11599
+256
+12111
+8827
+11318
+7130
+4530
+2911
+5657
+5648
+918
+1837
+9149
+9842
+2568
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f3 Filecontent.txt > numbers.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat numbers.txt
+11599
+256
+12111
+8827
+11318
+7130
+4530
+2911
+5657
+5648
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+11599
+256
+12111
+8827
+11318
+7130
+4530
+2911
+5657
+5648
+918
+1837
+9149
+9842
+2568
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$         ]
+bash: ]: command not found
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+
+
+
+
+
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+
+
+
+
+
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi fruits.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat f
+cat: f: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d ' ' -f3 fruits.txt > fruits_colors.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits_colors.txt
+red
+yellow
+green
+pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d' ' -f1 fruits.txt > fruits_names.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits_names.txt
+apple
+mango
+watermelon
+strawberry
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f4 FileContents.txt
+cut: FileContents.txt: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f4 Filecontent.txt
+CLOSED
+PENDING_PAYMENT
+COMPLETE
+CLOSED
+COMPLETE
+COMPLETE
+COMPLETE
+PROCESSING
+PENDING_PAYMENT
+PENDING_PAYMENT
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+CLOSED
+PENDING_PAYMENT
+COMPLETE
+CLOSED
+COMPLETE
+COMPLETE
+COMPLETE
+PROCESSING
+PENDING_PAYMENT
+PENDING_PAYMENT
+PAYMENT_REVIEW
+CLOSED
+PENDING_PAYMENT
+PROCESSING
+COMPLETE....
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f3,4 Filecontent.txt
+11599,CLOSED
+256,PENDING_PAYMENT
+12111,COMPLETE
+8827,CLOSED
+11318,COMPLETE
+7130,COMPLETE
+4530,COMPLETE
+2911,PROCESSING
+5657,PENDING_PAYMENT
+5648,PENDING_PAYMENT
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+11599,CLOSED
+256,PENDING_PAYMENT
+12111,COMPLETE
+8827,CLOSED
+11318,COMPLETE
+7130,COMPLETE
+4530,COMPLETE
+2911,PROCESSING
+5657,PENDING_PAYMENT
+5648,PENDING_PAYMENT
+918,PAYMENT_REVIEW
+1837,CLOSED
+9149,PENDING_PAYMENT
+9842,PROCESSING
+2568,COMPLETE....
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d, -f2,3,4 Filecontent.txt
+2013-07-25 00:00:00.0,11599,CLOSED
+2013-07-25 00:00:00.0,256,PENDING_PAYMENT
+2013-07-25 00:00:00.0,12111,COMPLETE
+2013-07-25 00:00:00.0,8827,CLOSED
+2013-07-25 00:00:00.0,11318,COMPLETE
+2013-07-25 00:00:00.0,7130,COMPLETE
+2013-07-25 00:00:00.0,4530,COMPLETE
+2013-07-25 00:00:00.0,2911,PROCESSING
+2013-07-25 00:00:00.0,5657,PENDING_PAYMENT
+2013-07-25 00:00:00.0,5648,PENDING_PAYMENT
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head -n15 FileContents.txt
+2013-07-25 00:00:00.0,11599,CLOSED
+2013-07-25 00:00:00.0,256,PENDING_PAYMENT
+2013-07-25 00:00:00.0,12111,COMPLETE
+2013-07-25 00:00:00.0,8827,CLOSED
+2013-07-25 00:00:00.0,11318,COMPLETE
+2013-07-25 00:00:00.0,7130,COMPLETE
+2013-07-25 00:00:00.0,4530,COMPLETE
+2013-07-25 00:00:00.0,2911,PROCESSING
+2013-07-25 00:00:00.0,5657,PENDING_PAYMENT
+2013-07-25 00:00:00.0,5648,PENDING_PAYMENT
+2013-07-25 00:00:00.0,918,PAYMENT_REVIEW
+2013-07-25 00:00:00.0,1837,CLOSED
+2013-07-25 00:00:00.0,9149,PENDING_PAYMENT
+2013-07-25 00:00:00.0,9842,PROCESSING
+2013-07-25 00:00:00.0,2568,COMPLETE....
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi list-of-smartphones
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d: -f1 list-of-smartphones
+Model
+IPhone4
+Galaxy
+Optimus
+Sensation
+IPhone4S
+N9
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -c 1-10 list-of-smartphones
+Model:Comp
+IPhone4:Ap
+Galaxy:Sam
+Optimus:LG
+Sensation:
+IPhone4S:A
+N9:Nokia:4
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d: -f2 list-of-smartpho
+cut: list-of-smartpho: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d: -f2 list-of-smartphones
+Company
+Apple
+Samsung
+LG
+HTC
+Apple
+Nokia
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d: -f1,3 list-of-smartphones
+Model:Price
+IPhone4:1000$
+Galaxy:900$
+Optimus:800$
+Sensation:400$
+IPhone4S:1100
+N9:400
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -c2 list-of-smartphones
+o
+P
+a
+p
+e
+P
+9
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d'|' -f1 list-of-smartphones
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cut -d: -f1 --complement  list-of-smartphones
+Company:Price:Camera:4G
+Apple:1000$:Yes:Yes
+Samsung:900$:Yes:Yes
+LG:800$:Yes:Yes
+HTC:400$:Yes:Yes
+Apple:1100:Yes:Yes
+Nokia:400:Yes:Yes:
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi marks.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat marks.txt | grep 9
+vamsi-90
+kavya-95
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep 9 marks.txt
+vamsi-90
+kavya-95
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -v 9 marks.txt
+charan-100
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep red fruits.txt
+apple is red
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep RED fruits.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep yellow fruits.txt
+mango is yellow
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -A1 red fruits.txt
+apple is red
+mango is yellow
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -A2 red fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -B1 yellow fruits.txt
+apple is red
+mango is yellow
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -B2 yellow fruits.txt
+apple is red
+mango is yellow
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -C2 yellow fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -C1 yellow fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -B1 -A1 yellow fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi example.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ ls -lrt *.txt
+-rw-r--r-- 1 Charan Kowndinya 197121   62 Feb  1 22:38 Day.txt
+-rw-r--r-- 1 Charan Kowndinya 197121 1092 Feb  1 23:08 Filecontent.txt
+-rw-r--r-- 1 Charan Kowndinya 197121  134 Feb  2 21:00 order_numbers.txt
+-rw-r--r-- 1 Charan Kowndinya 197121  205 Feb  2 21:01 numbers.txt
+-rw-r--r-- 1 Charan Kowndinya 197121   68 Feb  2 22:34 fruits.txt
+-rw-r--r-- 1 Charan Kowndinya 197121   22 Feb  2 22:35 fruits_colors.txt
+-rw-r--r-- 1 Charan Kowndinya 197121   34 Feb  2 22:35 fruits_names.txt
+-rw-r--r-- 1 Charan Kowndinya 197121   29 Feb  2 22:39 marks.txt
+-rw-r--r-- 1 Charan Kowndinya 197121   54 Feb  2 22:44 example.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat example.txt
+UNIX operating system
+UNIX and Linux operating system
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep UNIX example.txt
+UNIX operating system
+UNIX and Linux operating system
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep UNIX example.txt | grep -v Linux
+UNIX operating system
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$  egrep 'and|operating' example.txt
+UNIX operating system
+UNIX and Linux operating system
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ egrep 'and|operating|operation' example.txt
+UNIX operating system
+UNIX and Linux operating system
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep operat example.txt
+UNIX operating system
+UNIX and Linux operating system
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ grep -l kavya *.txt
+marks.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
