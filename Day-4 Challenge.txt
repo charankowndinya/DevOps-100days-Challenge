@@ -1,0 +1,326 @@
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop (master)
+$ cd Linux/
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ l
+bash: l: command not found
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ ls
+ Day.txt               'Day-3 Challenge.txt'   fruits_names.txt
+ Day-1                  example.txt            list-of-smartphones
+'Day1 Challenge.txt'    Filecontent.txt        marks.txt
+ Day-2                  fruits.txt             numbers.txt
+'Day-2 Challenge.txt'   fruits_colors.txt      order_numbers.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ echo class7 | sed 's/class/jtp/'
+jtp7
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ echo hello
+hello
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ echo class7 | sed 's/class/jtp/'
+jtp7
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ echo class7 | sed 's/7/10/'
+class10
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt
+apple is red
+mango is yellow
+watermelon is green
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt | sed 's/apple/pineapple/'
+pineapple is red
+mango is yellow
+watermelon is green
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi fruits.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt | sed 's/green/darkgreen/'
+apple is red
+mango is yellow
+watermelon is darkgreen
+mango is yellow
+lemon is YELLOW
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi fruits.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt | sed 's/green/darkgreen/'
+apple is red
+mango is yellow
+watermelon is darkgreen
+mango is yellow
+lemon is YELLOW
+anaar is RED
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi fruits.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt | sed 's/green/darkgreen/'
+apple is red
+mango is yellow
+watermelon is darkgreen
+mango is yellow
+lemon is YELLOW
+anaar is RED
+strawberry is pink
+watermelon is darkdarkgreen
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt | sed 's/green/darkgreen/'
+apple is red
+mango is yellow
+watermelon is darkgreen
+mango is yellow
+lemon is YELLOW
+anaar is RED
+strawberry is pink
+watermelon is darkdarkgreen
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat fruits.txt | sed 's/green/darkgreen/g'
+apple is red
+mango is yellow
+watermelon is darkgreen
+mango is yellow
+lemon is YELLOW
+anaar is RED
+strawberry is pink
+watermelon is darkdarkgreen
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ echo class7 class9 | sed 's/class/jtp/'
+jtp7 class9
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ echo class7 class9 | sed 's/class/jtp/g'
+jtp7 jtp9
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed '/green/d' fruits.txt
+apple is red
+mango is yellow
+mango is yellow
+lemon is YELLOW
+anaar is RED
+strawberry is pink
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ ls -lrt *smart*
+-rw-r--r-- 1 Charan Kowndinya 197121 188 Feb  2 22:37 list-of-smartphones
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed '1d' list-of-smartphones-2018.txt
+sed: can't read list-of-smartphones-2018.txt: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed '1d' list-of-smartphones
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed '$d' list-of-smartphones-2018.txt
+sed: can't read list-of-smartphones-2018.txt: No such file or directory
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed '$d' list-of-smartphones
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones-2018.txt | wc -l
+cat: list-of-smartphones-2018.txt: No such file or directory
+0
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones | wc -l
+8
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones | wc -l
+8
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed '/^$/d' list-of-smartphones | wc -l
+7
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ sed -i '/^$/d' list-of-smartphones
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ cat list-of-smartphones
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi employee.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk '/manager/ {print}' employee.txt
+ajay manager account 45000
+varun manager sales 50000
+amit manager account 47000
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk '{print $1,$4}' employee.txt
+ajay 45000
+sunil 25000
+varun 50000
+amit 47000
+tarun 15000
+deepak 23000
+sunil 13000
+satvik 80000
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk '{print $1}' part-00000  | head
+awk: fatal: cannot open file `part-00000' for reading (No such file or directory)
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ vi part-00000
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk '{print $1}' part-00000  | head
+1,2013-07-25
+2,2013-07-25
+3,2013-07-25
+4,2013-07-25
+5,2013-07-25
+6,2013-07-25
+7,2013-07-25
+8,2013-07-25
+9,2013-07-25
+10,2013-07-25
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk -F"," '{print $1}' part-00000  | head
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ ls
+ Day.txt                employee.txt        list-of-smartphones
+ Day-1                  example.txt         marks.txt
+'Day1 Challenge.txt'    Filecontent.txt     numbers.txt
+ Day-2                  fruits.txt          order_numbers.txt
+'Day-2 Challenge.txt'   fruits_colors.txt   part-00000
+'Day-3 Challenge.txt'   fruits_names.txt
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk -F"," '{print $1,$4}' list-of-smartphones  | head
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk -F"," '{print $1,$4}' list-of-smartphones | tail
+Model:Company:Price:Camera:4G
+IPhone4:Apple:1000$:Yes:Yes
+Galaxy:Samsung:900$:Yes:Yes
+Optimus:LG:800$:Yes:Yes
+Sensation:HTC:400$:Yes:Yes
+IPhone4S:Apple:1100:Yes:Yes
+N9:Nokia:400:Yes:Yes:
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ awk -F "," '{print NF}' part-00000 | head
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$ 4
+bash: 4: command not found
+
+Charan Kowndinya@DESKTOP-5OR8DO9 MINGW64 ~/Desktop/Linux (master)
+$
+
