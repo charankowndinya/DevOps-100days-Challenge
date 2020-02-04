@@ -1,0 +1,591 @@
+Linux File Ownership
+Every Linux system have three types of owner:
+
+User: A user is the one who created the file. By default, whosoever, creates the file becomes the owner of the file. A user can create, delete, or modify the file.
+
+Group: A group can contain multiple users. All the users belonging to a group have same access permission for a file.
+
+Other: Any one who has access to the file other than user and group comes in the category of other. Other has neither created the file nor is a group member.
+
+- Normal file
+d Directory
+l Symbolic link or soft link
+p Named pipe
+b Blocked device
+c Character device 
+s Socket
+
+
+Users and groups can be locally managed in /etc/psswd or /etc/group.
+
+
+Listing User Accounts:
+To know the local users account, following command can be used. It list out all the local users from the system.
+
+Syntax:
+
+cut -d: -f1 /etc/passwd | column
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ grep -i vamsi /etc/passwd
+vamsi:x:1000:1000:,,,:/home/vamsi:/bin/bash
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt /etc/passwd
+-rw-r--r-- 1 root root 1610 Mar 26 22:44 /etc/passwd
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt /etc/group
+-rw-r--r-- 1 root root 777 Mar 26 22:44 /etc/group
+vamsi@DESKTOP-UEUGFQT:~$
+
+Listing user groups:
+
+vamsi@DESKTOP-UEUGFQT:~$ grep -i vamsi /etc/group
+adm:x:4:syslog,vamsi
+dialout:x:20:vamsi
+cdrom:x:24:vamsi
+floppy:x:25:vamsi
+sudo:x:27:vamsi
+audio:x:29:vamsi
+dip:x:30:vamsi
+video:x:44:vamsi
+plugdev:x:46:vamsi
+netdev:x:109:vamsi
+lxd:x:110:vamsi
+vamsi:x:1000:
+vamsi@DESKTOP-UEUGFQT:~$
+
+Linux chgrp: change group
+The chgrp command can be abbreviated as change group. You can change the group owner of the file using chgrp command.
+
+Syntax:
+
+chgrp <newGroup> <fileName>  
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ touch kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kavya.txt
+-rw-rw-rw- 1 vamsi vamsi 0 May  9 23:29 kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ sudo chgrp messagebus kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kavya.txt
+-rw-rw-rw- 1 vamsi messagebus 0 May  9 23:29 kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+Note: Only root user have the permissison to change the owner or group of the files in the system.
+
+Linux chown: change owner
+Command chown is used to change the owner of the file.
+
+Syntax:
+
+chown <newOwner> <fileName>  
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kavya.txt
+-rw-rw-rw- 1 vamsi messagebus 0 May  9 23:29 kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ sudo chown games kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kavya.txt
+-rw-rw-rw- 1 games messagebus 0 May  9 23:29 kavya.txt
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+Command chown can also be used to change both user owner and group.
+
+Syntax:
+
+chown <newOwner:newGroup> <fileName>  
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ touch vamsi.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt vamsi.txt
+-rw-rw-rw- 1 vamsi vamsi 0 May  9 23:34 vamsi.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chown games:messagebus vamsi.txt
+chown: changing ownership of 'vamsi.txt': Operation not permitted
+vamsi@DESKTOP-UEUGFQT:~$ sudo chown games:messagebus vamsi.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt vamsi.txt
+-rw-rw-rw- 1 games messagebus 0 May  9 23:34 vamsi.txt
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+
+
+File Permissions:
+
+All the three owners (user/file owner, group, others) in the Linux system have three types of permissions defined. Nine characters denotes the three types of
+ permissions.
+
+Read (r) : The read permission allows you to open and read the content of a file. But you can't do any editing or modification in the file.
+
+Write (w) : The write permission allows you to edit, remove or rename a file. For instance, if a file is present in a directory, and write permission is set on the
+ file but not on the directory, then you can edit the content of the file but can't remove, or rename it.
+
+Execute (x): In Unix type system, you can't run or execute a program unless execute permission is set.But in Windows, there is no such permission available.
+
+
+refer a table in javatpoint about file permissions
+
+
+When you are the User owner, then the user owner permission applies to you. Other permissions are not relevant to you.
+
+When you are the Group then the group permission applies to you. Other permissions are not relevant to you.
+
+When you are the Other, then the other permission applies to you. User and group permissions are not relevant to you.
+
+Now, from remaining nine letters, first triplet represents the permission for user owner. Second triplet represents the permission for group owner.
+ Third triplet represents the permission for other .
+
+
+Setting Permissions With chmod
+You can change the permissions with chmod command accordingly to your need. Below are some examples to change the permissions for different groups.
+
+To add permissions to a group.
+
+Syntax:
+
+chmod <groupName>+<permissionName> <fileName>  
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ touch temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rw-rw-rw- 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$[[ chmod u+x temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rwxrw-rw- 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+
+
+
+To remove permissions from a group
+
+Syntax:
+
+chmod <groupName>-<permissionName> <fileName>  
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod g-x temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rwxrw-rwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod u-w g+x temp.txt
+chmod: cannot access 'g+x': No such file or directory
+vamsi@DESKTOP-UEUGFQT:~$
+
+To add/remove permission to all the groups together
+
+Syntax:
+
+chmod a+<permissionName> <fileName>  
+
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$ chmod a+r temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-r-xrw-rwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+Syntax:
+
+chmod a-<permissionName> <fileName>  
+
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod a-r temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+---x-w--wx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rwxrw-rw- 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod +x temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rwxrwxrwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+To set explicit permission
+
+Syntax:
+
+chmod <groupName>=<permissions> <fileName>  
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-r-xrw-rwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod u=w temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+--w-rw-rwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod u=rwx temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rwxrw-rwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rwxrw-rwx 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod u=r,g=w,o=x temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-r---w---x 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod u=rw,g=rw,o=rw temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt temp.txt
+-rw-rw-rw- 1 vamsi vamsi 0 May  9 23:45 temp.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+octal notation:
+
+vamsi@DESKTOP-UEUGFQT:~$ touch may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+-rw-rw-rw- 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod +rwx may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+-rwxrwxrwx 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod -rwx may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+---------- 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ cat may.txt
+cat: may.txt: Permission denied
+vamsi@DESKTOP-UEUGFQT:~$ sudo cat may.txt
+[sudo] password for vamsi:
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod 777 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+-rwxrwxrwx 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+
+read-only permission for owner:
+
+vamsi@DESKTOP-UEUGFQT:~$ chmod 400 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ cat may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+-r-------- 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+changing permission for directory and subdirectory recursively in Unix:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep "^d"
+drwxrwxrwx 0 vamsi vamsi         4096 Feb 20  2017 retail_db
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  1 16:11 LinuxFundamentals
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  2 00:06 TestDir_vamsi
+drwxr--r-- 0 vamsi vamsi         4096 Apr  2 19:55 TestingDir
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  6 21:54 ShellScripting
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:17 user1
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:18 forrecursivecopying
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:37 user10
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 17 21:49 user3
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 mon
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 tue
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 wed
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:34 thu
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 21:31 mvtest
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:08 krishna
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:24 kavya
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 test
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 saturday
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kavya
+total 0
+drwxrwxrwx 0 vamsi vamsi 4096 Apr 12 00:11 abc
+drwxrwxrwx 0 vamsi vamsi 4096 Apr 15 01:13 just
+-rw-rw-rw- 1 vamsi vamsi   50 Apr 18 00:32 TestFile.txt
+-rw-rw-rw- 1 vamsi vamsi    9 Apr 18 22:30 file2
+-rw-rw-rw- 1 vamsi vamsi    0 Apr 19 22:57 cpinteractive.txt~
+-rw-rw-rw- 1 vamsi vamsi   24 Apr 19 23:19 newfile.txt
+-rw-rw-rw- 1 vamsi vamsi    0 Apr 19 23:23 newfile.txt1
+-rw-rw-rw- 1 vamsi vamsi    0 Apr 22 21:03 original.txt
+-rw-rw-rw- 1 vamsi vamsi    0 Apr 22 21:04 ori.txt
+-rw-rw-rw- 1 vamsi vamsi    0 Apr 22 21:16 mynewfile1_copy
+-rw-rw-rw- 1 vamsi vamsi    0 Apr 22 21:23 cpinteractive
+-rw-rw-rw- 1 vamsi vamsi   71 May  6 11:52 kavyaFile.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod -R 777 kavya
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kavya
+total 0
+drwxrwxrwx 0 vamsi vamsi 4096 Apr 12 00:11 abc
+drwxrwxrwx 0 vamsi vamsi 4096 Apr 15 01:13 just
+-rwxrwxrwx 1 vamsi vamsi   50 Apr 18 00:32 TestFile.txt
+-rwxrwxrwx 1 vamsi vamsi    9 Apr 18 22:30 file2
+-rwxrwxrwx 1 vamsi vamsi    0 Apr 19 22:57 cpinteractive.txt~
+-rwxrwxrwx 1 vamsi vamsi   24 Apr 19 23:19 newfile.txt
+-rwxrwxrwx 1 vamsi vamsi    0 Apr 19 23:23 newfile.txt1
+-rwxrwxrwx 1 vamsi vamsi    0 Apr 22 21:03 original.txt
+-rwxrwxrwx 1 vamsi vamsi    0 Apr 22 21:04 ori.txt
+-rwxrwxrwx 1 vamsi vamsi    0 Apr 22 21:16 mynewfile1_copy
+-rwxrwxrwx 1 vamsi vamsi    0 Apr 22 21:23 cpinteractive
+-rwxrwxrwx 1 vamsi vamsi   71 May  6 11:52 kavyaFile.txt
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+setting execute permission only on directories without touching files:
+
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep ^d
+drwxrwxrwx 0 vamsi vamsi         4096 Feb 20  2017 retail_db
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  1 16:11 LinuxFundamentals
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  2 00:06 TestDir_vamsi
+drwxr--r-- 0 vamsi vamsi         4096 Apr  2 19:55 TestingDir
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  6 21:54 ShellScripting
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:17 user1
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:18 forrecursivecopying
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:37 user10
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 17 21:49 user3
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 mon
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 tue
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 wed
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:34 thu
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 21:31 mvtest
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:08 krishna
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:24 kavya
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 test
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 saturday
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt TestingDir
+total 0
+drwxr-xr-x 0 vamsi vamsi 4096 Apr  2 19:51 UmaskTestDir
+-rw-r--r-- 1 vamsi vamsi    0 Apr  2 19:55 UmaskTestFile
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod a+X TestingDir
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt TestingDir
+total 0
+drwxr-xr-x 0 vamsi vamsi 4096 Apr  2 19:51 UmaskTestDir
+-rw-r--r-- 1 vamsi vamsi    0 Apr  2 19:55 UmaskTestFile
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep ^d
+drwxrwxrwx 0 vamsi vamsi         4096 Feb 20  2017 retail_db
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  1 16:11 LinuxFundamentals
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  2 00:06 TestDir_vamsi
+drwxr-xr-x 0 vamsi vamsi         4096 Apr  2 19:55 TestingDir
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  6 21:54 ShellScripting
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:17 user1
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:18 forrecursivecopying
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:37 user10
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 17 21:49 user3
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 mon
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 tue
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 wed
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:34 thu
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 21:31 mvtest
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:08 krishna
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:24 kavya
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 test
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 saturday
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt TestingDir
+total 0
+drwxr-xr-x 0 vamsi vamsi 4096 Apr  2 19:51 UmaskTestDir
+-rw-r--r-- 1 vamsi vamsi    0 Apr  2 19:55 UmaskTestFile
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep ^d
+drwxrwxrwx 0 vamsi vamsi         4096 Feb 20  2017 retail_db
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  1 16:11 LinuxFundamentals
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  2 00:06 TestDir_vamsi
+drwxr-xr-x 0 vamsi vamsi         4096 Apr  2 19:55 TestingDir
+drwxrwxrwx 0 vamsi vamsi         4096 Apr  6 21:54 ShellScripting
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:17 user1
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:18 forrecursivecopying
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 15 01:37 user10
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 17 21:49 user3
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 mon
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 tue
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:33 wed
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 21 23:34 thu
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 21:31 mvtest
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:08 krishna
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:24 kavya
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 test
+drwxrwxrwx 0 vamsi vamsi         4096 Apr 22 23:26 saturday
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod a-X *
+chmod: changing permissions of 'kavya.txt': Operation not permitted
+chmod: changing permissions of 'vamsi.txt': Operation not permitted
+vamsi@DESKTOP-UEUGFQT:~$ sudo chmod a-X *
+[sudo] password for vamsi:
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep ^d
+drw-rw-rw- 0 vamsi vamsi         4096 Feb 20  2017 retail_db
+drw-rw-rw- 0 vamsi vamsi         4096 Apr  1 16:11 LinuxFundamentals
+drw-rw-rw- 0 vamsi vamsi         4096 Apr  2 00:06 TestDir_vamsi
+drw-r--r-- 0 vamsi vamsi         4096 Apr  2 19:55 TestingDir
+drw-rw-rw- 0 vamsi vamsi         4096 Apr  6 21:54 ShellScripting
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 15 01:17 user1
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 15 01:18 forrecursivecopying
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 15 01:37 user10
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 17 21:49 user3
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 21 23:33 mon
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 21 23:33 tue
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 21 23:33 wed
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 21 23:34 thu
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 22 21:31 mvtest
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 22 23:08 krishna
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 22 23:24 kavya
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 22 23:26 test
+drw-rw-rw- 0 vamsi vamsi         4096 Apr 22 23:26 saturday
+vamsi@DESKTOP-UEUGFQT:~$
+
+changing mutiple permission for a file or directory in Unix or Linux:
+
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+-r-------- 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ chmod u+x,g+x may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt may.txt
+-r-x--x--- 1 vamsi vamsi 0 May 10 23:04 may.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+How to copy permission from one file to another in Unix:
+
+example@localhost~/test ls -lrt future_trading
+-rwxrwxrwx 1 example Domain Users 0 Jul 15 15:30 future_trading*
+
+example@localhost~/test ls -lrt stock_trading_systems
+-r--r--r-- 1 example Domain Users 0 Jul 15 11:42 stock_trading_systems
+
+example@localhost~/test chmod --reference=stock_trading_systems future_trading
+
+example@localhost~/test ls -lrt future_trading
+-r--r--r-- 1 example Domain Users 0 Jul 15 15:30 future_trading
+
+
+umask:
+
+https://www.thegeekstuff.com/2010/04/unix-file-and-directory-permissions/
+
+vamsi@DESKTOP-UEUGFQT:~$ touch vam.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt vam.txt
+-rw-rw-rw- 1 vamsi vamsi 0 May 11 00:12 vam.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ umask
+0000
+vamsi@DESKTOP-UEUGFQT:~$ umask 0022
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ umask
+0022
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kri.txt
+ls: cannot access 'kri.txt': No such file or directory
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ touch kri.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt kri.txt
+-rw-r--r-- 1 vamsi vamsi 0 May 11 00:12 kri.txt
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ mkdir g1
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep *g1*
+drwxr-xr-x 0 vamsi vamsi         4096 May 11 00:14 g1
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+mkdir -m
+
+The 'mkdir -m' command can be used to set the mode.
+
+Syntax:
+
+mkdir -m <mode> <fileName>  
+Example:
+
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ mkdir -m 777 d5
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$ ls -lrt | grep *d5*
+drwxrwxrwx 0 vamsi vamsi         4096 May 10 23:41 d5
+vamsi@DESKTOP-UEUGFQT:~$
+vamsi@DESKTOP-UEUGFQT:~$
+
+
+
+softlinks --> partially complete
+
+Soft links are very common. It represents a virtual or abstract location of the file. It is just like the shortcuts created in Windows. A soft link doesn't contain any
+ information or content of the linked file, instead it has a pointer to the location of the linked file.
+
+
+
